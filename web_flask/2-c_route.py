@@ -2,7 +2,7 @@
 '''
 A script that starts a Flask web application.
 
-Defines routes for '/', '/hbnb' and '/c/<text>'
+Defines routes for /, /hbnb and /c/<text>
 '''
 
 from flask import Flask
