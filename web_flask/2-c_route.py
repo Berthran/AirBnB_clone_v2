@@ -11,19 +11,19 @@ app = Flask(__name__)
 
 
 @app.route('/', strict_slashes=False)
-def homepage():
+def show_homepage():
     '''Handles the logic for the home page'''
     return f"Hello HBNB!"
 
 
 @app.route('/hbnb', strict_slashes=False)
-def hbnb():
+def display_hbnb():
     '''Displays the text HBNB'''
     return f"HBNB"
 
 
-@app.route('/c/<text>')
-def c(text):
+@app.route('/c/<text>', strict_slashes=False)
+def display_c(text):
     '''Displays 'C' followed by the value of the text variable'''
     text = text.replace("_", " ")
     return f"C {text}"
