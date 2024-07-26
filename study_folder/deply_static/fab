@@ -1,0 +1,6 @@
+from fabric import *
+
+@task
+def deploy(c):
+    c.local('whoami')
+
