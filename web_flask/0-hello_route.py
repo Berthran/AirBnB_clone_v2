@@ -9,6 +9,7 @@ app = Flask(__name__)
 
 @app.route('/', strict_slashes=False)
 def homepage():
+    '''Handles the logic for the home page'''
     return f"Hello HBNB!"
 
 
