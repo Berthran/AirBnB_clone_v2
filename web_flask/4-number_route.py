@@ -3,7 +3,7 @@
 A script that starts a Flask web application.
 
 Defines routes for:
-/, /hbnb, /c/<text>, /python/<text> and /number/<n>
+/, /hbnb, /c/<text>, /python, /python/, /python/<text> and /number/<n>
 '''
 
 from flask import Flask
