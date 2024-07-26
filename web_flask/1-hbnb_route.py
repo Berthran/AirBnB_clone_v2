@@ -13,6 +13,7 @@ def homepage():
     '''Handles the logic for the home page'''
     return f"Hello HBNB!"
 
+
 @app.route('/hbnb', strict_slashes=False)
 def hbnb():
     '''Displays the text HBNB'''
