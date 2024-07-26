@@ -7,6 +7,7 @@ from flask import Flask
 
 app = Flask(__name__)
 
+
 @app.route('/', strict_slashes=False)
 def homepage():
     '''Handles the logic for the home page'''
@@ -14,4 +15,4 @@ def homepage():
 
 
 if __name__ == '__main__':
-    app.run(host=0.0.0.0, port=5000), debug=True), use_reloader=False)
+    app.run(host=0.0.0.0, port=5000, debug=True, use_reloader=False)
