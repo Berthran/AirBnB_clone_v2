@@ -34,9 +34,35 @@ class DBStorage:
             table_names = inspector.get_table_names()
             for table in table_names:
                 drop_query = text(f"DROP TABLE IF EXISTS {table}")
-                print(f"Dropping table {table}")
-                self.__session.execute(drop_query)
+                print(f"Fake Dropping table {table}")
+                #self.__session.execute(drop_query)
 
     def all(self, cls=None):
         dictionary = {}
-        pass
+        if cls:
+            query_result = self.__session.query(cls).all()
+            for obj in query_result:
+                key = f"{cls.__name__}.{obj.id}"
+                dictionary[key] = obj
+        else:
+            for subclass in Base.__subclassess__():
+                query_result = self.__session.query(subclass).all
+                for obj in query_result:
+                    key = f"{subclass.__name__}.{obj.id}"
+                    dictionary[key] = obj
+        return dictionary
+
+
+    def new(self, obj):
+        '''Adds an obj to storage'''
+        self.__session.add(obj)
+
+
+    def save(self):
+        '''Saves the newly added object'''
+        self.__session.commit()
+
+
+    def delete(self, obj=None):
+        '''Removes an object from the database session'''
+
