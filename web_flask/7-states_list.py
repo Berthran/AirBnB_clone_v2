@@ -1,5 +1,10 @@
 #!/usr/bin/python3
-# Starts a Flask web application
+'''
+A script that starts a Flask web application.
+
+Defines routes for
+/states_list
+'''
 from flask import Flask, render_template
 from models import storage
 from models.state import State
