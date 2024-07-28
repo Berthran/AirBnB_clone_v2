@@ -8,7 +8,7 @@ import models
 
 class State(BaseModel, Base):
     """ State class """
-    __table__name = "states"
+    __tablename__ = "states"
 
     name = Column(String(128), nullable=False)
 
