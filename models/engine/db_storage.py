@@ -6,6 +6,7 @@ from sqlalchemy import create_engine, text, inspect
 from sqlalchemy.orm import sessionmaker, scoped_session
 from models.base_model import Base
 
+
 class DBStorage:
     """This class manages storage of hbnb models using MySQL database"""
     __engine = None
@@ -21,7 +22,8 @@ class DBStorage:
         db_env = os.getenv('HBNB_ENV')
 
         # Create database engine
-        self.__engine = create_engine(f'mysql+mysqldb://{db_user}:{db_pwd}@{db_host}/{db}', pool_pre_ping=True)
+        url = f'mysql+mysqldb://{db_user}:{db_pwd}@{db_host}/{db}'
+        self.__engine = create_engine(url, pool_pre_ping=True)
 
         # Remove tables if in "test" environment
         if db_env == 'test':
@@ -46,16 +48,13 @@ class DBStorage:
                     dictionary[key] = obj
         return dictionary
 
-
     def new(self, obj):
         '''Adds an obj to storage'''
         self.__session.add(obj)
 
-
     def save(self):
         '''Saves the newly added object'''
         self.__session.commit()
-
 
     def delete(self, obj=None):
         '''Removes an object from the database session'''
