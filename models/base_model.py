@@ -56,6 +56,7 @@ class BaseModel:
         try:
             dictionary['created_at'] = self.created_at.isoformat()
             dictionary['updated_at'] = self.updated_at.isoformat()
+            dictionary.pop('_sa_instance_state')
         except Exception:
             pass
         return dictionary
