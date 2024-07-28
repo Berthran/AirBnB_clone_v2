@@ -59,3 +59,7 @@ class FileStorage:
         """Deletes an obj from __objects"""
         if obj and obj in self.all().values():
             self.all().pop(obj.to_dict()['__class__'] + '.' + obj.id)
+
+    def close(self):
+        """Calls the reload method"""
+        self.reload()

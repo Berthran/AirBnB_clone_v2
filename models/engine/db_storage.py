@@ -79,3 +79,7 @@ class DBStorage:
         # Create session for querying database
         Session = sessionmaker(bind=self.__engine, expire_on_commit=False)
         DBStorage.__session = scoped_session(Session)
+
+    def close(self):
+        """Closes a session"""
+        self.__session.remove()
