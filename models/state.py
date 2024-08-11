@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 """ State Module for HBNB project """
+from datetime import datetime
 from models.base_model import BaseModel, Base
-from sqlalchemy import Column, String
+from sqlalchemy import Column, String, DateTime
 from sqlalchemy.orm import relationship
 from models.city import City
 import models
@@ -11,6 +12,9 @@ class State(BaseModel, Base):
     """ State class """
     __tablename__ = "states"
 
+    id = Column(String(60), primary_key=True)
+    created_at = Column(DateTime, default=datetime.utcnow)
+    updated_at = Column(DateTime, default=datetime.utcnow)
     name = Column(String(128), nullable=False)
 
     if models.storage_t == 'db':
